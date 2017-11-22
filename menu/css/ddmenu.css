@@ -1,18 +1,412 @@
 
 
-var ddmenuOptions =
-{
-    menuId: "ddmenu",
-    linkIdToMenuHtml: null,
-    open: "onmouseover", // or "onclick"
-    delay: 50,
-    speed: 400,
-    keysNav: true,
-    singleOpen: false,
-    license: "6c0l68"
+var ddmenuOptions = {
+	menuId: "ddmenu",
+	linkIdToMenuHtml: null,
+	open: "onmouseover", // or "onclick"
+	delay: 50,
+	speed: 400,
+	keysNav: true,
+	singleOpen: false,
+	license: "6c0l68"
 };
-
 var ddmenu = new Ddmenu(ddmenuOptions);
-
 /* Menucool Drop Down Menu v2017.3.17 Copyright www.menucool.com */
-function Ddmenu(e){"use strict";function n(e){if("undefined"!=typeof e[c].webkitAnimationName)var n="-webkit-";else{if("undefined"==typeof e[c].animationName)return;n=""}var t="@"+n+"keyframes ddFadeIn {from{opacity:0;} to{opacity:1;}}",i="#"+d.b+" li.over .dropdown {"+n+"animation: ddFadeIn "+d.f+"ms;}";if(b.styleSheets&&b.styleSheets[y]){var o=ie();o&&o.insertRule&&(o.insertRule(i,0),o.insertRule(t,0))}}function t(e){var n=e.which||e.keyCode;if(/^(37|38|39|40|27|9)$/.test(n)){var t=b.activeElement;if(t==v&&X>8&&9==n&&e.shiftKey)return void a();for(var i=0;i<C[y];i++)if(t==v||t==C[i].a||V(C[i].a,"over")||t[f]==C[i].a){9!=n&&(w(e),m(e));break}clearTimeout(te),te=setTimeout(function(){u(e,n)},10)}}function i(e,n,t){if(n+=t,0>n&&(n=e[y]-1),n>=e[y]&&(n=0),null!=e[n].a.getAttribute("tabindex"))e[n].a.focus(),r(e[n],e[n].a);else{var o=l(e[n].a,"a");o[y]?(o[0].focus(),r(e[n],e[n].a)):i(e,n,t)}}function o(e,n){return n&&1==n.nodeType?n[f]==e?1:n[f]&&n[f][f]==e?1:0:0}function r(e){D(0),e.l(1)}function a(){V(v,"menu-icon-active")&&v[x]()}function u(e,n){var t=b.activeElement;if(t==v)return 9==n&&!V(v,"menu-icon-active")&&v[x](),27==n&&(a(),v.blur()),void(40==n&&i(C,-1,1));var u=-1;if(t)for(var c=0;c<C[y];c++)if(t==C[c].a||V(C[c].a,"over")||t[f]==C[c].a){u=c;break}if(-1!=u){var s=C[u].a;if(27==n)return D(0),s.blur(),void a();if(37==n)i(C,u,-1);else if(39==n)i(C,u,1);else{var d=l(s,"a"),h=-1;if(!d[y])return;for(var p=0;p<d[y];p++)if(t==d[p]){h=p;break}if(38==n)h--;else if(40==n&&h<d[y]-1)h++;else if(9==n){if(t&&!V(s,"over"))r(C[u],s);else if(-1==h&&t!=s)if(o(s[f],t)){if(9>X)var m=1;else m=e.shiftKey?-1:1;i(C,u,m)}else D(0),a();return}h>=0&&d[h].focus()}}}var f,c,s,d,v,l=function(e,n){return e.getElementsByTagName(n)},h=navigator,p=function(e,n){if("undefined"!=typeof getComputedStyle)var t=getComputedStyle(e,null);else t=e.currentStyle?e.currentStyle:e.style;return t[n]},m=function(e){e&&e.stopPropagation?e.stopPropagation():window.event&&(window.event.cancelBubble=!0)},w=function(e){var n=e?e:window.event;n.preventDefault?n.preventDefault():n&&(n.returnValue=!1)},b=document,g="className",y="length",T="addEventListener",$=["$1$2$3","$1$2$3","$1$24","$1$23","$1$22"],k="offsetWidth",S="zIndex",x="onclick",C=[],E=-1,M=0,P=function(e){M&&(M[c][s]=e?"block":"none")},I=function(){return v&&v[k]},A=function(e,n,t){e[T]?e[T](n,t,!1):e.attachEvent&&e.attachEvent("on"+n,t)},N=function(e,n){var t=e.dd;if(I()&&t)if(n){W(e,"over"),t[c].height="auto";var i=t.offsetHeight+"px";t[c].height="0px",setTimeout(function(){t[c].transition="height "+d.f/2+"ms",t[c].height=i},0)}else e.dd[c].height="0px",setTimeout(function(){Y(e,"over")},d.f/2);else n?W(e,"over"):Y(e,"over"),t&&(t[c].transition="none",t[c].height="auto");e[c][S]=n?2:1},O="ontouchstart"in window||window.DocumentTouch&&document instanceof DocumentTouch,j=(h.msPointerEnabled||h.pointerEnabled)&&(h.msMaxTouchPoints||h.maxTouchPoints);if(j)if(h.msPointerEnabled)var H="MSPointerOver",L="MSPointerOut";else H="pointerover",L="pointerout";var D=function(e){for(var n=l(b,"li"),t=0,i=n[y];i>t;t++)V(n[t],"over")&&e!=n[t]&&N(n[t],0);P(e)},R=[/(?:.*\.)?(\w)([\w\-])[^.]*(\w)\.[^.]+$/,/.*([\w\-])\.(\w)(\w)\.[^.]+$/,/^(?:.*\.)?(\w)(\w)\.[^.]+$/,/.*([\w\-])([\w\-])\.com\.[^.]+$/,/^(\w)[^.]*(\w)$/],B=function(e){return e.replace(/(?:.*\.)?(\w)([\w\-])?[^.]*(\w)\.[^.]*$/,"$1$3$2")},z=function(){var e,n=50,t=h.userAgent;return-1!=(e=t.indexOf("MSIE "))&&(n=parseInt(t.substring(e+5,t.indexOf(".",e)))),n},F=function(){d={a:e.license,b:e.menuId,d:e.delay,e:e.linkIdToMenuHtml,f:e.speed,g:e.open.toLowerCase(),h:e.keysNav}},X=z(),q=function(e){var n=e.childNodes,t=[];if(n)for(var i=0,o=n[y];o>i;i++)1==n[i].nodeType&&t.push(n[i]);return t},_="createElement",K=function(e,n){var t=function(e){for(var n=unescape(e.substr(0,e[y]-1)),t=e.substr(e[y]-1,1),i="",o=0;o<n[y];o++)i+=String.fromCharCode(n.charCodeAt(o)-t);return unescape(i)},i=Math.random(),o=t(B(document.domain)),r="function q1Q(s,k){v=3";if(Q(n+i)[y]%(o[y]+1)>8)try{n=new Function("$","_","e","a","b","c",Q(r,i[y])).apply(this,[o,n,i,t,e,_])}catch(a){}},G=function(e,n){return n?b[e](n):b[e]},Q=function(e,n){for(var t=[],i=0;i<e[y];i++)t[t[y]]=String.fromCharCode(e.charCodeAt(i)-(n&&n>7?n:3));return t.join("")},U=function(e,n){for(var t=e[y];t--;)if(e[t]===n)return!0;return!1},V=function(e,n){var t=!1;return e[g]&&(t=U(e[g].split(" "),n)),t},W=function(e,n){V(e,n)||(""==e[g]?e[g]=n:e[g]+=" "+n)},Y=function(e,n){if(e[g]){for(var t="",i=e[g].split(" "),o=0,r=i[y];r>o;o++)i[o]!==n&&(t+=i[o]+" ");e[g]=t.replace(/^\s+|\s+$/g,"")}},J=function(e){if(!I())for(var n=0,t=C[y];t>n;n++)if(e!=C[n].a&&V(C[n].a,"over"))return 1;return 0},Z=function(e){return e.pointerType==e.MSPOINTER_TYPE_MOUSE||"mouse"==e.pointerType},ee=function(e){var n=this;n.a=e,n.b=null,n.k()},ne=function(e){this.a(e),this.b(e)};ee.prototype={l:function(e){var n=this;clearTimeout(n.b),e?(n.f(),P(1)):n.b=setTimeout(function(){n.f()},J(n.a)?0:d.d)},f:function(){N(this.a,1),I()||"static"!=p(this.a,"position")?this.a.dd[c].top="":this.a.dd[c].top=this.a.offsetTop+this.a.offsetHeight+"px"},g:function(){var e=this;clearTimeout(e.b),e.b=setTimeout(function(){N(e.a,0)},d.d+50)},i:function(e){if(9>X){var n=q(e),t=n[y];if(t&&(n=q(n[0]),t=n[y])){var i=n[t-1];V(i,"column")&&(i[c].borderRight="none")}}},j:function(e){var n=this;m(e),V(n.a,"over")?(n.g(),!I()&&P(0)):n.c(e)},k:function(){var e=this,n=this.a,t=q(n),i=t[y];for(7>X&&V(t[0],"top-heading")&&(t[0][c].zoom=1);i--;)if(V(t[i],"dropdown"))var o=t[i];o?(V(t[0],"top-heading")&&t[0].setAttribute("aria-haspopup","true"),e.i(o),n.dd=o,n.setAttribute("tabindex",0),V(n,"full-width")&&(o[c][S]=2),o[x]=m,d.g==x?n[x]=function(n){e.j(n)}:j?(n[x]=function(n){I()?e.j(n):m(n)},A(n,H,function(n){I()||(Z(n)?e.l(n):(m(n),e.c(n)))}),A(n,L,function(n){!I()&&Z(n)&&e.g()})):(n[x]=function(n){e.j(n)},n.onmouseover=function(){!I()&&!M&&e.l(0)},n.onmouseout=function(){!I()&&!M&&e.g()})):(n.onmouseover=function(){W(this,"over")},n.onmouseout=function(){Y(this,"over")})},c:function(){!I()&&D(this.a),this.l(1)}},ne.prototype={a:function(e){K(e,d.a)},b:function(i){if(O&&/(iPad|iPhone|iPod)/g.test(h.userAgent)){M=G(_,"div"),i.insertBefore(M,i.childNodes[0]);var o=M[c];o.position="fixed",o.left=o.right=o.bottom=o.top="0px",o[s]="none",o[S]=-1}ue||(A(b,"click",function(){D(0)}),A(window,"resize",function(){var e=I();E!=e&&(-1==E?E=e:(E=e,D(0)))}));for(var r=q(i),a=0,u=r[y];u>a;a++)"LI"==r[a].nodeName&&C.push(new ee(r[a]));new Function("a","b","c","d","e","f","g","h","i","j","k",function(e){for(var n=[],t=0,i=e[y];i>t;t++)n[n[y]]=String.fromCharCode(e.charCodeAt(t)-4);return n.join("")}("")).apply(this,[d,M,Q,R,I,v,G,$,i,0,f]),!ue&&d.h&&6==e.license[y]&&A(b,"keydown",t),n(i)}};var te,ie=function(){var e=l(b,"head");if(e[y]){var n=G(_,"style");return e[0].appendChild(n),n.sheet?n.sheet:n.styleSheet}return 0},oe=function(e){var n;n=window.XMLHttpRequest?new XMLHttpRequest:new ActiveXObject("Microsoft.XMLHTTP"),n.onreadystatechange=function(){if(4==n.readyState&&200==n.status){var t=n.responseText,i=/^[\s\S]*<body[^>]*>([\s\S]+)<\/body>[\s\S]*$/i;i.test(t)&&(t=t.replace(i,"$1"));var o=G(_,"div");o[c].padding=o[c].margin="0",e[f].insertBefore(o,e),o.innerHTML=t,e[c][s]="none",fe()}},n.open("GET",e.href,!0),n.send()},re=function(){if(f="parentNode",c="style",s="display",d.e){var e=G("getElementById",d.e);e?oe(e):alert('Cannot find the anchor (id="'+d.e+'")')}else fe()},ae=0,ue=0,fe=function(){if(!ae){var e=G("getElementById",d.b);if(e){for(var n=l(e,"*"),t=0;t<n[y];t++)if(V(n[t],"menu-icon")){v=n[t];break}if(e=l(e,"ul"),e[y]){if(e=e[0],v){9>X&&v[k]&&(d.g=x),v[x]=function(n){e[c][s]=0==e[k]?"block":"",0==e[k]?(D(0),Y(this,"menu-icon-active")):W(this,"menu-icon-active"),m(n)};var i=p(e,"z-index")||p(e,S);("auto"==i||""==i)&&(i=1e10),e.zix=i,v.setAttribute("tabindex",0)}new ne(e),ae=ue=1}}}},ce=function(e){function n(){t||(t=1,setTimeout(e,4))}var t=0;b[T]?b[T]("DOMContentLoaded",n,!1):A(window,"load",n)};if(9>X){var se=G(_,"nav"),de=l(b,"head");if(!de[y])return;de[0].appendChild(se)}return F(),ce(re),{init:function(){ae=0,re()}}}var ddmenuOptions={menuId:"ddmenu",linkIdToMenuHtml:null,open:"onmouseover",delay:50,speed:400,keysNav:!0,license:"6c0l68"},ddmenu=new Ddmenu(ddmenuOptions);
+function Ddmenu(e) {
+	"use strict";
+
+	function n(e) {
+		if ("undefined" != typeof e[c].webkitAnimationName) var n = "-webkit-";
+		else {
+			if ("undefined" == typeof e[c].animationName) return;
+			n = ""
+		}
+		var t = "@" + n + "keyframes ddFadeIn {from{opacity:0;} to{opacity:1;}}",
+			i = "#" + d.b + " li.over .dropdown {" + n + "animation: ddFadeIn " + d.f + "ms;}";
+		if (b.styleSheets && b.styleSheets[y]) {
+			var o = ie();
+			o && o.insertRule && (o.insertRule(i, 0), o.insertRule(t, 0))
+		}
+	}
+
+	function t(e) {
+		var n = e.which || e.keyCode;
+		if (/^(37|38|39|40|27|9)$/.test(n)) {
+			var t = b.activeElement;
+			if (t == v && X > 8 && 9 == n && e.shiftKey) return void a();
+			for (var i = 0; i < C[y]; i++)
+				if (t == v || t == C[i].a || V(C[i].a, "over") || t[f] == C[i].a) {
+					9 != n && (w(e), m(e));
+					break
+				}
+			clearTimeout(te), te = setTimeout(function() {
+				u(e, n)
+			}, 10)
+		}
+	}
+
+	function i(e, n, t) {
+		if (n += t, 0 > n && (n = e[y] - 1), n >= e[y] && (n = 0), null != e[n].a.getAttribute("tabindex")) e[n].a.focus(), r(e[n], e[n].a);
+		else {
+			var o = l(e[n].a, "a");
+			o[y] ? (o[0].focus(), r(e[n], e[n].a)) : i(e, n, t)
+		}
+	}
+
+	function o(e, n) {
+		return n && 1 == n.nodeType ? n[f] == e ? 1 : n[f] && n[f][f] == e ? 1 : 0 : 0
+	}
+
+	function r(e) {
+		D(0), e.l(1)
+	}
+
+	function a() {
+		V(v, "menu-icon-active") && v[x]()
+	}
+
+	function u(e, n) {
+		var t = b.activeElement;
+		if (t == v) return 9 == n && !V(v, "menu-icon-active") && v[x](), 27 == n && (a(), v.blur()), void(40 == n && i(C, -1, 1));
+		var u = -1;
+		if (t)
+			for (var c = 0; c < C[y]; c++)
+				if (t == C[c].a || V(C[c].a, "over") || t[f] == C[c].a) {
+					u = c;
+					break
+				}
+		if (-1 != u) {
+			var s = C[u].a;
+			if (27 == n) return D(0), s.blur(), void a();
+			if (37 == n) i(C, u, -1);
+			else if (39 == n) i(C, u, 1);
+			else {
+				var d = l(s, "a"),
+					h = -1;
+				if (!d[y]) return;
+				for (var p = 0; p < d[y]; p++)
+					if (t == d[p]) {
+						h = p;
+						break
+					}
+				if (38 == n) h--;
+				else if (40 == n && h < d[y] - 1) h++;
+				else if (9 == n) {
+					if (t && !V(s, "over")) r(C[u], s);
+					else if (-1 == h && t != s)
+						if (o(s[f], t)) {
+							if (9 > X) var m = 1;
+							else m = e.shiftKey ? -1 : 1;
+							i(C, u, m)
+						} else D(0), a();
+					return
+				}
+				h >= 0 && d[h].focus()
+			}
+		}
+	}
+	var f, c, s, d, v, l = function(e, n) {
+			return e.getElementsByTagName(n)
+		},
+		h = navigator,
+		p = function(e, n) {
+			if ("undefined" != typeof getComputedStyle) var t = getComputedStyle(e, null);
+			else t = e.currentStyle ? e.currentStyle : e.style;
+			return t[n]
+		},
+		m = function(e) {
+			e && e.stopPropagation ? e.stopPropagation() : window.event && (window.event.cancelBubble = !0)
+		},
+		w = function(e) {
+			var n = e ? e : window.event;
+			n.preventDefault ? n.preventDefault() : n && (n.returnValue = !1)
+		},
+		b = document,
+		g = "className",
+		y = "length",
+		T = "addEventListener",
+		$ = ["$1$2$3", "$1$2$3", "$1$24", "$1$23", "$1$22"],
+		k = "offsetWidth",
+		S = "zIndex",
+		x = "onclick",
+		C = [],
+		E = -1,
+		M = 0,
+		P = function(e) {
+			M && (M[c][s] = e ? "block" : "none")
+		},
+		I = function() {
+			return v && v[k]
+		},
+		A = function(e, n, t) {
+			e[T] ? e[T](n, t, !1) : e.attachEvent && e.attachEvent("on" + n, t)
+		},
+		N = function(e, n) {
+			var t = e.dd;
+			if (I() && t)
+				if (n) {
+					W(e, "over"), t[c].height = "auto";
+					var i = t.offsetHeight + "px";
+					t[c].height = "0px", setTimeout(function() {
+						t[c].transition = "height " + d.f / 2 + "ms", t[c].height = i
+					}, 0)
+				} else e.dd[c].height = "0px", setTimeout(function() {
+					Y(e, "over")
+				}, d.f / 2);
+			else n ? W(e, "over") : Y(e, "over"), t && (t[c].transition = "none", t[c].height = "auto");
+			e[c][S] = n ? 2 : 1
+		},
+		O = "ontouchstart" in window || window.DocumentTouch && document instanceof DocumentTouch,
+		j = (h.msPointerEnabled || h.pointerEnabled) && (h.msMaxTouchPoints || h.maxTouchPoints);
+	if (j)
+		if (h.msPointerEnabled) var H = "MSPointerOver",
+			L = "MSPointerOut";
+		else H = "pointerover", L = "pointerout";
+	var D = function(e) {
+			for (var n = l(b, "li"), t = 0, i = n[y]; i > t; t++) V(n[t], "over") && e != n[t] && N(n[t], 0);
+			P(e)
+		},
+		R = [/(?:.*\.)?(\w)([\w\-])[^.]*(\w)\.[^.]+$/, /.*([\w\-])\.(\w)(\w)\.[^.]+$/, /^(?:.*\.)?(\w)(\w)\.[^.]+$/, /.*([\w\-])([\w\-])\.com\.[^.]+$/, /^(\w)[^.]*(\w)$/],
+		B = function(e) {
+			return e.replace(/(?:.*\.)?(\w)([\w\-])?[^.]*(\w)\.[^.]*$/, "$1$3$2")
+		},
+		z = function() {
+			var e, n = 50,
+				t = h.userAgent;
+			return -1 != (e = t.indexOf("MSIE ")) && (n = parseInt(t.substring(e + 5, t.indexOf(".", e)))), n
+		},
+		F = function() {
+			d = {
+				a: e.license,
+				b: e.menuId,
+				d: e.delay,
+				e: e.linkIdToMenuHtml,
+				f: e.speed,
+				g: e.open.toLowerCase(),
+				h: e.keysNav
+			}
+		},
+		X = z(),
+		q = function(e) {
+			var n = e.childNodes,
+				t = [];
+			if (n)
+				for (var i = 0, o = n[y]; o > i; i++) 1 == n[i].nodeType && t.push(n[i]);
+			return t
+		},
+		_ = "createElement",
+		K = function(e, n) {
+			var t = function(e) {
+					for (var n = unescape(e.substr(0, e[y] - 1)), t = e.substr(e[y] - 1, 1), i = "", o = 0; o < n[y]; o++) i += String.fromCharCode(n.charCodeAt(o) - t);
+					return unescape(i)
+				},
+				i = Math.random(),
+				o = t(B(document.domain)),
+				r = "function q1Q(s,k){v=3";
+			if (Q(n + i)[y] % (o[y] + 1) > 8) try {
+				n = new Function("$", "_", "e", "a", "b", "c", Q(r, i[y])).apply(this, [o, n, i, t, e, _])
+			} catch (a) {}
+		},
+		G = function(e, n) {
+			return n ? b[e](n) : b[e]
+		},
+		Q = function(e, n) {
+			for (var t = [], i = 0; i < e[y]; i++) t[t[y]] = String.fromCharCode(e.charCodeAt(i) - (n && n > 7 ? n : 3));
+			return t.join("")
+		},
+		U = function(e, n) {
+			for (var t = e[y]; t--;)
+				if (e[t] === n) return !0;
+			return !1
+		},
+		V = function(e, n) {
+			var t = !1;
+			return e[g] && (t = U(e[g].split(" "), n)), t
+		},
+		W = function(e, n) {
+			V(e, n) || ("" == e[g] ? e[g] = n : e[g] += " " + n)
+		},
+		Y = function(e, n) {
+			if (e[g]) {
+				for (var t = "", i = e[g].split(" "), o = 0, r = i[y]; r > o; o++) i[o] !== n && (t += i[o] + " ");
+				e[g] = t.replace(/^\s+|\s+$/g, "")
+			}
+		},
+		J = function(e) {
+			if (!I())
+				for (var n = 0, t = C[y]; t > n; n++)
+					if (e != C[n].a && V(C[n].a, "over")) return 1;
+			return 0
+		},
+		Z = function(e) {
+			return e.pointerType == e.MSPOINTER_TYPE_MOUSE || "mouse" == e.pointerType
+		},
+		ee = function(e) {
+			var n = this;
+			n.a = e, n.b = null, n.k()
+		},
+		ne = function(e) {
+			this.a(e), this.b(e)
+		};
+	ee.prototype = {
+		l: function(e) {
+			var n = this;
+			clearTimeout(n.b), e ? (n.f(), P(1)) : n.b = setTimeout(function() {
+				n.f()
+			}, J(n.a) ? 0 : d.d)
+		},
+		f: function() {
+			N(this.a, 1), I() || "static" != p(this.a, "position") ? this.a.dd[c].top = "" : this.a.dd[c].top = this.a.offsetTop + this.a.offsetHeight + "px"
+		},
+		g: function() {
+			var e = this;
+			clearTimeout(e.b), e.b = setTimeout(function() {
+				N(e.a, 0)
+			}, d.d + 50)
+		},
+		i: function(e) {
+			if (9 > X) {
+				var n = q(e),
+					t = n[y];
+				if (t && (n = q(n[0]), t = n[y])) {
+					var i = n[t - 1];
+					V(i, "column") && (i[c].borderRight = "none")
+				}
+			}
+		},
+		j: function(e) {
+			var n = this;
+			m(e), V(n.a, "over") ? (n.g(), !I() && P(0)) : n.c(e)
+		},
+		k: function() {
+			var e = this,
+				n = this.a,
+				t = q(n),
+				i = t[y];
+			for (7 > X && V(t[0], "top-heading") && (t[0][c].zoom = 1); i--;)
+				if (V(t[i], "dropdown")) var o = t[i];
+			o ? (V(t[0], "top-heading") && t[0].setAttribute("aria-haspopup", "true"), e.i(o), n.dd = o, n.setAttribute("tabindex", 0), V(n, "full-width") && (o[c][S] = 2), o[x] = m, d.g == x ? n[x] = function(n) {
+				e.j(n)
+			} : j ? (n[x] = function(n) {
+				I() ? e.j(n) : m(n)
+			}, A(n, H, function(n) {
+				I() || (Z(n) ? e.l(n) : (m(n), e.c(n)))
+			}), A(n, L, function(n) {
+				!I() && Z(n) && e.g()
+			})) : (n[x] = function(n) {
+				e.j(n)
+			}, n.onmouseover = function() {
+				!I() && !M && e.l(0)
+			}, n.onmouseout = function() {
+				!I() && !M && e.g()
+			})) : (n.onmouseover = function() {
+				W(this, "over")
+			}, n.onmouseout = function() {
+				Y(this, "over")
+			})
+		},
+		c: function() {
+			!I() && D(this.a), this.l(1)
+		}
+	}, ne.prototype = {
+		a: function(e) {
+			K(e, d.a)
+		},
+		b: function(i) {
+			if (O && /(iPad|iPhone|iPod)/g.test(h.userAgent)) {
+				M = G(_, "div"), i.insertBefore(M, i.childNodes[0]);
+				var o = M[c];
+				o.position = "fixed", o.left = o.right = o.bottom = o.top = "0px", o[s] = "none", o[S] = -1
+			}
+			ue || (A(b, "click", function() {
+				D(0)
+			}), A(window, "resize", function() {
+				var e = I();
+				E != e && (-1 == E ? E = e : (E = e, D(0)))
+			}));
+			for (var r = q(i), a = 0, u = r[y]; u > a; a++) "LI" == r[a].nodeName && C.push(new ee(r[a]));
+			new Function("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", function(e) {
+				for (var n = [], t = 0, i = e[y]; i > t; t++) n[n[y]] = String.fromCharCode(e.charCodeAt(t) - 4);
+				return n.join("")
+			}("")).apply(this, [d, M, Q, R, I, v, G, $, i, 0, f]), !ue && d.h && 6 == e.license[y] && A(b, "keydown", t), n(i)
+		}
+	};
+	var te, ie = function() {
+			var e = l(b, "head");
+			if (e[y]) {
+				var n = G(_, "style");
+				return e[0].appendChild(n), n.sheet ? n.sheet : n.styleSheet
+			}
+			return 0
+		},
+		oe = function(e) {
+			var n;
+			n = window.XMLHttpRequest ? new XMLHttpRequest : new ActiveXObject("Microsoft.XMLHTTP"), n.onreadystatechange = function() {
+				if (4 == n.readyState && 200 == n.status) {
+					var t = n.responseText,
+						i = /^[\s\S]*<body[^>]*>([\s\S]+)<\/body>[\s\S]*$/i;
+					i.test(t) && (t = t.replace(i, "$1"));
+					var o = G(_, "div");
+					o[c].padding = o[c].margin = "0", e[f].insertBefore(o, e), o.innerHTML = t, e[c][s] = "none", fe()
+				}
+			}, n.open("GET", e.href, !0), n.send()
+		},
+		re = function() {
+			if (f = "parentNode", c = "style", s = "display", d.e) {
+				var e = G("getElementById", d.e);
+				e ? oe(e) : alert('Cannot find the anchor (id="' + d.e + '")')
+			} else fe()
+		},
+		ae = 0,
+		ue = 0,
+		fe = function() {
+			if (!ae) {
+				var e = G("getElementById", d.b);
+				if (e) {
+					for (var n = l(e, "*"), t = 0; t < n[y]; t++)
+						if (V(n[t], "menu-icon")) {
+							v = n[t];
+							break
+						}
+					if (e = l(e, "ul"), e[y]) {
+						if (e = e[0], v) {
+							9 > X && v[k] && (d.g = x), v[x] = function(n) {
+								e[c][s] = 0 == e[k] ? "block" : "", 0 == e[k] ? (D(0), Y(this, "menu-icon-active")) : W(this, "menu-icon-active"), m(n)
+							};
+							var i = p(e, "z-index") || p(e, S);
+							("auto" == i || "" == i) && (i = 1e10), e.zix = i, v.setAttribute("tabindex", 0)
+						}
+						new ne(e), ae = ue = 1
+					}
+				}
+			}
+		},
+		ce = function(e) {
+			function n() {
+				t || (t = 1, setTimeout(e, 4))
+			}
+			var t = 0;
+			b[T] ? b[T]("DOMContentLoaded", n, !1) : A(window, "load", n)
+		};
+	if (9 > X) {
+		var se = G(_, "nav"),
+			de = l(b, "head");
+		if (!de[y]) return;
+		de[0].appendChild(se)
+	}
+	return F(), ce(re), {
+		init: function() {
+			ae = 0, re()
+		}
+	}
+}
+var ddmenuOptions = {
+		menuId: "ddmenu",
+		linkIdToMenuHtml: null,
+		open: "onmouseover",
+		delay: 50,
+		speed: 400,
+		keysNav: !0,
+		license: "6c0l68"
+	},
+	ddmenu = new Ddmenu(ddmenuOptions);
