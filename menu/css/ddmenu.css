@@ -217,7 +217,7 @@ border-right:1px solid #999;
 
 
 /*styles for responsive menu*/
-@media only screen and (min-width: 481px) and (max-width: 900px) {
+@media only screen and (min-width: 1481px) and (max-width: 1900px) {
     #ddmenu .column.mayHide {
         display: none;
     }
@@ -254,7 +254,7 @@ border-right:1px solid #999;
 }
 
 /*styles for mobile*/
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1480px) {
     #ddmenu .column.mayHide {
         display: none;
     }
